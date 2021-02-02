@@ -1,0 +1,38 @@
+[
+    {
+        "subject": "medical",
+        "column1": 80,
+        "column2": 70,
+        "date": "2021 01 01"
+    },
+    {
+        "subject": "savings",
+        "column1": 95,
+        "column2": 85,
+        "date": "2021 01 01"
+    },
+    {
+        "subject": "critical illness",
+        "column1": 65,
+        "column2": 80,
+        "date": "2021 01 01"
+	},
+	{
+        "subject": "life",
+        "column1": 50,
+        "column2": 60,
+        "date": "2021 01 01"
+    },
+	{
+        "subject": "accident",
+        "column1": 60,
+        "column2": 65,
+        "date": "2021 01 01"
+    },
+	{
+        "subject": "investment",
+        "column1": 85,
+        "column2": 40,
+        "date": "2021 01 01"
+    }
+]

@@ -1,0 +1,36 @@
+.box{
+    margin: 10% auto;
+    width: 600px;
+    height: 400px;
+    /* background-color: #ddd; */
+}
+
+.title{
+    font-size: 20px;
+}
+
+.foot-title{
+    font-size: 13px;
+}
+
+.label{
+    font-size: 13px;
+}
+
+.polygon{
+    fill-opacity: 0.8;
+}
+
+.container {
+    margin: 30px auto;
+    width: 600px;
+    height: 300px;
+    border: 1px solid #000;
+}
+
+.webs polygon {
+    fill: white;
+    fill-opacity: 0.5;
+    stroke: gray;
+    stroke-dasharray: 10 5;
+}

@@ -1,0 +1,30 @@
+[
+    {
+        "url": "http://127.0.0.1:8888/src/samrt_dna_jquery/component_news/images/1.jpg",
+        "title": "BPV Campaign title",
+        "detail": "BPV description BPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV description BPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV description.",
+        "link": "http://baidu.com",
+        "date": "2021 01 01"
+    },
+    {
+        "url": "http://127.0.0.1:8888/src/samrt_dna_jquery/component_news/images/2.jpg",
+        "title": "BPV Campaign title2",
+        "detail": "BPV description BPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV description BPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV description.",
+        "link": "http://baidu.com",
+        "date": "2021 01 01"
+    },
+    {
+        "url": "http://127.0.0.1:8888/src/samrt_dna_jquery/component_news/images/3.jpg",
+        "title": "BPV Campaign title3",
+        "detail": "BPV description BPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV description BPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV description.",
+        "link": "http://baidu.com",
+        "date": "2021 01 01"
+	},
+	{
+        "url": "http://127.0.0.1:8888/src/samrt_dna_jquery/component_news/images/4.jpg",
+        "title": "BPV Campaign title4",
+        "detail": "BPV description BPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV description BPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV descriptionBPV description.",
+        "link": "http://baidu.com",
+        "date": "2021 01 01"
+    }
+]
