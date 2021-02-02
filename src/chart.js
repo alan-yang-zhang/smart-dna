@@ -1,8 +1,8 @@
 export default class Chart {
     constructor(){
-        this._width = 600;
+        this._width = 500;
         this._height = 400;
-        this._margins = {top:30, left:30, right:30, bottom:30};
+        this._margins = {top:0, left:0, right:0, bottom:0};
         this._data = [];
         this._scaleX = null;
         this._scaleY = null;
@@ -128,14 +128,15 @@ export default class Chart {
 
         if (!this._svg){
             this._svg = this._box.append('svg')
-                            .attr('width', this._width)
-                            .attr('height', this._height);
+                .attr('width', '100%')
+                .attr('height', this._height)
+                .attr("viewBox", "0 0 500 500");
+
         }
 
         this.defineBodyClip();
 
         this.renderBody();
     }
-
 }
 

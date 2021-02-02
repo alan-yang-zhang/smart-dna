@@ -352,9 +352,9 @@ d3.json("data.json").then(function(data){
     chart.renderFooter = function(){
         const footerLabel = chart.svg().append('g')
             .attr('id', 'footerLabel')
-            .attr('transform', 'translate(80,320)');
+            .attr('transform', 'translate(120,320)');
 
-        const footerLabelItem = footerLabel.append('g').attr('transform', 'translate(60,0)');
+        const footerLabelItem = footerLabel.append('g').attr('transform', 'translate(0,0)');
 
         footerLabelItem.append('circle')
             .attr('cx', -10)
@@ -368,7 +368,7 @@ d3.json("data.json").then(function(data){
             .text(data[0].subject)
             .attr('fill', config.textColor)
 
-        const footerLabelItem2 = footerLabel.append('g').attr('transform', 'translate(250,0)');
+        const footerLabelItem2 = footerLabel.append('g').attr('transform', 'translate(150,0)');
 
         footerLabelItem2.append('circle')
             .attr('cx', -10)
@@ -429,8 +429,7 @@ d3.json("data.json").then(function(data){
     }
 
     chart.renderChart();
-    
-        
+
 });
 
 
