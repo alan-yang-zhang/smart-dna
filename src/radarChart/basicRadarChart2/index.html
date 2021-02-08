@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/ >
+		<title>Smoothed D3.js Radar Chart</title>
+        <link rel="stylesheet" type="text/css" href="./index.css" />
+
+		<!-- D3.js -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script> -->
+        
+        <script src="../../../lib/d3.js"></script>	
+        <script src="radarChart.js"></script>	
+	</head>
+	<body>
+
+		<div class="radarChart"></div>
+
+		<script>
+
+      /* Radar chart design created by Nadieh Bremer - VisualCinnamon.com */
+      
+			////////////////////////////////////////////////////////////// 
+			//////////////////////// Set-Up ////////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+
+			var width = Math.min(700, window.innerWidth - 10),
+				height = Math.min(width, window.innerHeight - 20);
+					
+			////////////////////////////////////////////////////////////// 
+			////////////////////////// Data ////////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+
+			var data = [
+					  [//iPhone
+						{axis:"Life",value:0.22},
+						{axis:"Critical Illness",value:0.28},
+						{axis:"Savings",value:0.29},
+						{axis:"Medical",value:0.17},
+						{axis:"Investment",value:0.22},
+						{axis:"Accident",value:0.50}
+					  ],[//Samsung
+						{axis:"Life",value:0.27},
+						{axis:"Critical Illness",value:0.16},
+						{axis:"Savings",value:0.35},
+						{axis:"Medical",value:0.13},
+						{axis:"Investment",value:0.20},
+						{axis:"Accident",value:0.38}
+					  ]
+					];
+			////////////////////////////////////////////////////////////// 
+			//////////////////// Draw the Chart ////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+
+			var color = d3.scaleOrdinal()
+				.range(["#EDC951","#CC333F"]);
+				
+			var radarChartOptions = {
+			  maxValue: 0.5,
+			  levels: 5,
+			  roundStrokes: true,
+			  color: color,
+			  textLabelIcon: ['0.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg'],
+			  title: 'Coverage at-a-glance',
+        	  textColor: '#242424',
+			};
+			//Call function to draw the Radar chart
+            RadarChart(".radarChart", data, radarChartOptions);
+		</script>
+	</body>
+</html>
