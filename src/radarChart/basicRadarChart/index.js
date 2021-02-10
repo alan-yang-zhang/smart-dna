@@ -12,7 +12,7 @@ d3.json("data.json").then(function(data){
         tickNum: 5,
         axisfillColor: ['white','white'],
         polygonfillColor: ['#6699ff', '#ffffcc'],
-        textLabelIcon: ['0.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg'],
+        textLabelIcon: ['iconDiMedical.svg', 'iconDiSavings.svg', 'iconDiCi.svg', 'iconDiLife.svg', 'iconDiAccident.svg', 'iconDiInvestment.svg'],
         axisStrokeColor: 'gray',
         pointsSize: 1,
         startAngle: 30
@@ -49,12 +49,11 @@ d3.json("data.json").then(function(data){
                     .append('polygon')
                     .attr('class', 'axis')
                     .merge(axes)
-                        .attr('points', (d) => d)
-                        .attr('fill', (d,i) => i%2 === 0?config.axisfillColor[0]:config.axisfillColor[1])
-                        .attr('stroke', config.axisStrokeColor);
+                    .attr('points', (d) => d)
+                    .attr('fill', (d,i) => i%2 === 0?config.axisfillColor[0]:config.axisfillColor[1])
+                    .attr('stroke', config.axisStrokeColor);
             
-              axes.exit()
-                    .remove();
+              axes.exit().remove();
 
         // ----渲染对角线-----
         const line = d3.line();
@@ -66,16 +65,16 @@ d3.json("data.json").then(function(data){
                     .data(outerPoints);
             
               lines.enter()
-                     .append('path')
-                     .attr('class', 'line')
-                   .merge(lines)
-                     .attr('d', (d) => {
-                         return line([
-                             [0, 0],
-                             [d[0], d[1]]
-                         ]);
-                     })
-                     .attr('stroke', config.axisStrokeColor);
+                .append('path')
+                .attr('class', 'line')
+                .merge(lines)
+                .attr('d', (d) => {
+                    return line([
+                        [0, 0],
+                        [d[0], d[1]]
+                    ]);
+                })
+                .attr('stroke', config.axisStrokeColor);
             
                 lines.exit()
                      .remove();
@@ -132,10 +131,10 @@ d3.json("data.json").then(function(data){
             .attr('text-anchor', (d,i) => computeTextAnchor(data,i));
 
         textGroups.append('image')
-            .attr('class', 'label')
             .attr('xlink:href', (d,i) => config.textLabelIcon[i])
-            .attr('height', '16')
-            .attr('width', '16');
+            .attr('y', -8)
+            .attr('height', '32')
+            .attr('width', '32');
 
         function computeTextTransform(data, i){
             let x = Math.sin(i * Math.PI * 2 / keys.length + startRadian) * (config.radius + 20);
@@ -182,12 +181,12 @@ d3.json("data.json").then(function(data){
         }
 
         function computeTextX(data, i){
-            let x = 20;
+            let x = 30;
 
             const angle = i * 360 / keys.length;
 
             if ( angle >= 180){
-                x = -5
+                x = 1
             }
 
             return x;
@@ -354,12 +353,12 @@ d3.json("data.json").then(function(data){
             .attr('id', 'footerLabel')
             .attr('transform', 'translate(120,320)');
 
-        const footerLabelItem = footerLabel.append('g').attr('transform', 'translate(0,0)');
+        const footerLabelItem = footerLabel.append('g').attr('transform', 'translate(-50,0)');
 
         footerLabelItem.append('circle')
             .attr('cx', -10)
-            .attr('cy',23)
-            .attr('r', 4)
+            .attr('cy',27)
+            .attr('r', 8)
             .attr('dy', '2em')
             .attr('fill', '#529fca')
 
@@ -372,8 +371,8 @@ d3.json("data.json").then(function(data){
 
         footerLabelItem2.append('circle')
             .attr('cx', -10)
-            .attr('cy',23)
-            .attr('r', 4)
+            .attr('cy',27)
+            .attr('r', 8)
             .attr('dy', '2em')
             .attr('fill', '#FFA500')
 
