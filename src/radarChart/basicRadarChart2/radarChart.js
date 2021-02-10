@@ -136,16 +136,17 @@ function RadarChart(id, data, options) {
 
     textGroups.append('image')
         .attr('class', 'label')
-        .attr('xlink:href', (d,i) => config.textLabelIcon[i])
-        .attr('y', -12)
-        .attr('height', '24')
-        .attr('width', '24');
+		.attr('xlink:href', (d,i) => config.textLabelIcon[i])
+		.attr('x', (data,i) => computeTextX(data,i, -10, -20))
+        .attr('y', -23)
+        .attr('height', '48')
+        .attr('width', '48');
 
 	//Append the labels at each axis
 	textGroups.append("text")
 		.attr("class", "line-text")
         .attr('text-anchor', (data,i) => computeTextAnchor(data,i))
-        .attr('x', (data,i) => computeTextX(data,i))
+        .attr('x', (data,i) => computeTextX(data,i, 50, -15))
         .attr("dy", "0.35em")
 		.text(function(d){return d})
 		.call(wrap, config.wrapWidth);
@@ -157,13 +158,13 @@ function RadarChart(id, data, options) {
         return "translate(" + x + "," + y + ")"; 
     }
 
-    function computeTextX(data, i){
+    function computeTextX(data, i, paddingRight, paddingLeft){
         const angle = i * 360 / total;
 
         if ( angle < 90 || angle > 270){
-            return 38;
+            return paddingRight;
         }else{
-            return -20
+            return paddingLeft
         }
     }
 
