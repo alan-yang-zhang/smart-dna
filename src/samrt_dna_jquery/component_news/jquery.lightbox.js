@@ -24,7 +24,6 @@
 			showLightbox(this);
 			return false;
 		});
-
 		/*
 		# Initialize the lightbox by creating our html and reading some image data
 		# This method is called by the constructor after any click events trigger it
@@ -120,6 +119,7 @@
 		# Returns a boolean true, because it's got nothing else to return. It should give visual feedback when run
 		*/
 		function showLightbox(imageObject) {
+
 			/**
 			* select, embed and object tags render over the lightbox in some browsers
 			* Right now, the best way to fix it is to hide them, but that can trigger reloading of some flash content
@@ -173,6 +173,7 @@
 					$('#imageDataContainer').hide();
 					$('#imageData').hide();
 				}
+
 				doChangeImage();
 			}
 		};

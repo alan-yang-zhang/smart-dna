@@ -21,13 +21,28 @@
 				dataType: "json",
 				async: false,
 				success: function(data) {
-					$(".lightbox-json").lightbox({
+					initRenderUI(data);
+					
+					const a = $(".lightbox-json").lightbox({
 						fitToScreen: true,
 						jsonData: data,
 						imageClickClose: false
 					});
 				}
 			});
+
+			function initRenderUI(data) {
+				const newFlag = '<span class="tag-new">New</span>';
+				const imageItem = '<a href="#URL#" class="lightbox-json"><img src="#URL#" alt="" /></a>';
+
+				data.forEach(element => {
+					var regURL = new RegExp("#URL#","g");
+
+					const currentItem = imageItem.replaceAll(regURL, element.url);
+
+					$(".news-images").append(currentItem);
+				});
+			}
 		});
 	</script>
 </head>
@@ -41,24 +56,7 @@
 				news
 			</div>
 		</div>
-
 		<div class="news-images">
-			<a href="./images/1.jpg" class="lightbox-json" title="Photo by Warren Krewenki">
-				<span class="tag-new">New</span>
-				<img src="./images/1.jpg" alt="" />
-			</a>
-
-			<a href="./images/2.jpg" class="lightbox-json" title="Photo by Warren Krewenki">
-				<img src="./images/2.jpg" alt="" />
-			</a>
-
-			<a href="./images/3.jpg" class="lightbox-json" title="Photo by Warren Krewenki">
-				<img src="./images/3.jpg" alt="" />
-			</a>
-
-			<a href="./images/4.jpg" class="lightbox-json" title="Photo by Warren Krewenki">
-				<img src="./images/4.jpg" alt="" />
-			</a>
 		</div>
 	</div>
 </div>
