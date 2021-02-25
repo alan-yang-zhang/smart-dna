@@ -1,0 +1,143 @@
+.container {
+	padding: 0;
+}
+
+.container-product {
+	padding: 30px 20px;
+	background-color: #fff;
+}
+
+.product-text {
+	padding: 10px;
+	color: #333d47;
+	text-align: center;
+	letter-spacing: .2px;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.text-blod {
+	font-weight: 700;
+}
+
+.product-card {
+	margin: 20px 0;
+	padding-bottom: 10px;
+	background-color: #fff;
+	box-shadow: 0 8px 13px 0 rgba(0,0,0,.06),0 4px 9px 0 rgba(0,0,0,.07),0 1px 10px 0 rgba(0,0,0,.08);
+}
+
+.product-card-img img {
+	width: 100%;
+	height: 150px;
+}
+
+.product-description {
+	position: relative;
+	margin: 20px;
+}
+
+.product-offer {
+	margin: 20px;
+}
+
+.product-offer-title {
+	display: block;
+	padding-bottom: 10px;
+	width: 100%;
+	color: #333d47;
+	letter-spacing: .2px;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.wrap-offer-description {
+	display: flex;
+}
+
+.wrap-offer-description .offer-description-img {
+	width: 35px;
+	height: 35px;
+	flex: 0 0 15%;
+}
+
+.product-action {
+	padding: 0 0 15px 20px;
+}
+
+.product-action .button {
+	padding: 10px 0;
+	width: 30%;
+	height: 48px;
+	outline: 0;
+	border: #d31145 solid 1px;
+	border-radius: 5px;
+	border-radius: 8px;
+	background-color: #fff;
+	color: #d31145;
+	text-align: center;
+	letter-spacing: .1px;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.product-tag {
+	position: absolute;
+	top: -45px;
+	right: 0;
+	overflow: hidden;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+}
+
+.product-tag img {
+	width: 100%;
+	height: 100%;
+}
+
+.product-description-title {
+	display: block;
+	margin-bottom: 10px;
+	height: 24px;
+	letter-spacing: 0;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.product-description-text,.wrap-offer-description {
+	letter-spacing: .3px;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+.wrap-product-suggestion {
+	background-color: #f8f8f9;
+}
+
+.container-suggestion {
+	display: flex;
+	justify-content: space-between;
+}
+
+.suggestion-item {
+	flex: 0 0 20%;
+}
+
+.suggestion-image {
+	display: block;
+	overflow: hidden;
+	width: 54px;
+	height: 54px;
+	border: #529fca solid 2px;
+	border-radius: 27px;
+}
+
+.suggestion-image img {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+}

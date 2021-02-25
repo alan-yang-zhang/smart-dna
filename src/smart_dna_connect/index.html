@@ -47,6 +47,10 @@
 				$('.wrap-protection-gap').removeClass("hidden");
 			}
 		}
+		
+		function handleGotoProductDetail(id) {
+			window.location.href="./product-detail.html";
+		}
 	</script>
 </head>
 <body>
@@ -172,7 +176,7 @@
 		</div>
 
 		<div class="container-product-card">
-			<div class="product-card">
+			<div class="product-card" onclick="handleGotoProductDetail(1)">
 				<div class="product-card-img">
 					<img src="/src/assets/images/1.jpg">
 				</div>
@@ -191,7 +195,7 @@
 				</div>
 			</div>
 
-			<div class="product-card">
+			<div class="product-card" onclick="handleGotoProductDetail(1)">
 				<div class="product-card-img">
 					<img src="/src/assets/images/1.jpg">
 				</div>
@@ -210,7 +214,7 @@
 				</div>
 			</div>
 
-			<div class="product-card">
+			<div class="product-card" onclick="handleGotoProductDetail(1)">
 				<div class="product-card-img">
 					<img src="/src/assets/images/1.jpg">
 				</div>
