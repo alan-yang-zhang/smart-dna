@@ -168,3 +168,40 @@
 .container-head {
     padding: 20px;
 }
+
+.container-footer {
+	background-color: #F2F2F7;
+	position: fixed;
+	padding: 20px;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+.container-footer .container-footer-title {
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 600;
+}
+
+.container-footer .fa-exclamation-circle {
+	color: gainsboro;
+    padding-right: 10px;
+}
+.container-footer .container-footer-action {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-footer .action-item {
+	flex: 0 0 32%;
+	padding: 10px 0;
+	background-color: #fff;
+	height: 70px;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	color: #D31145;
+	font-size: 10px;
+	line-height: 20px;
+}

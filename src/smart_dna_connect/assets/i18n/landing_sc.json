@@ -1,0 +1,15 @@
+{
+        "1.0.0.0": "{{name1}} 是 {{name2}} 的*",
+        "1.0.0.0.1": "是 {{name2}} 的*",
+        "1.0.0.1": "Other Family Member",
+        "1.0.0.2": "*必须填写",
+        "1.0.0.3": "Relationship of Other Family Member*",
+        "1.0.0.4": "Other Family Member will ONLY be displayed on Relationship Diagram – List view",
+        "1.0.0.5": "Successfully Add Family Member",
+        "1.0.0.6": "successfully added as ",
+        "1.0.0.7.1": "There is a known parent of {{name1}} - {{name2}}.",
+        "1.0.0.7.2": "Are {{name1}} and {{name2}} spouses?",
+        "1.0.0.7.3": "Are the following contacts the children of both {{name1}} and {{name2}}?",
+        "1.0.0.8": "以上皆非",
+        "1.0.0.9": "Shared Child is added"
+}
