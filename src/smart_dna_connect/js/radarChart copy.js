@@ -3,7 +3,7 @@ function RadarChart(id, data, options) {
 
 	//If the supplied maxValue is smaller than the actual one, replace by the max in the data
 	var maxValue = Math.max(config.maxValue, d3.max(data, function(i){return d3.max(i.map(function(o){return o.value;}))}));
-
+		
 	var allAxis = (data[0].map(function(i, j){return i.axis})),
 		total = allAxis.length,					
 		radius = Math.min(config.w/4, config.h/4), 	
@@ -28,7 +28,11 @@ function RadarChart(id, data, options) {
     var g = svg.append("g")
             .attr('class', 'svgWrapper')
 			.attr("transform", "translate(" + (config.w/2 + config.margin.left) + "," + (config.h/2 + config.margin.top) + ")");
-
+	
+	/////////////////////////////////////////////////////////
+	////////// Glow filter for some extra pizzazz ///////////
+	/////////////////////////////////////////////////////////
+	
 	//Filter for the outside glow
 	var filter = g.append('defs').append('filter').attr('id','glow'),
 		feGaussianBlur = filter.append('feGaussianBlur').attr('stdDeviation','2.5').attr('result','coloredBlur'),
@@ -36,6 +40,10 @@ function RadarChart(id, data, options) {
 		feMergeNode_1 = feMerge.append('feMergeNode').attr('in','coloredBlur'),
 		feMergeNode_2 = feMerge.append('feMergeNode').attr('in','SourceGraphic');
 
+	/////////////////////////////////////////////////////////
+	/////////////// Draw the Circular grid //////////////////
+	/////////////////////////////////////////////////////////
+	
 	//Wrapper for the grid & axes
 	var axisGrid = g.append("g").attr("class", "axisWrapper");
 	
@@ -128,7 +136,10 @@ function RadarChart(id, data, options) {
             return 'end'
         }
     }
-
+	/////////////////////////////////////////////////////////
+	///////////// Draw the radar chart blobs ////////////////
+	/////////////////////////////////////////////////////////
+	
 	//The radial line function
 	var radarLine = d3.radialLine()
 		.radius(function(d) { return rScale(d.value); })
@@ -140,30 +151,51 @@ function RadarChart(id, data, options) {
 		.data(data)
 		.enter().append("g")
 		.attr("class", "radarWrapper");
-
+			
+	//Append the backgrounds	
+	blobWrapper
+		.append("path")
+		.attr("class", "radarArea")
+		.attr("d", function(d,i) { return radarLine(d); })
+		.style("fill", function(d,i) { return config.color(i); })
+		.style("fill-opacity", config.opacityArea)
+		.on('mouseover', function (d,i){
+			//Dim all blobs
+			d3.selectAll(".radarArea")
+				.transition().duration(200)
+				.style("fill-opacity", 0.1); 
+			//Bring back the hovered over blob
+			d3.select(this)
+				.transition().duration(200)
+				.style("fill-opacity", 0.7);	
+		})
+		.on('mouseout', function(){
+			//Bring back all blobs
+			d3.selectAll(".radarArea")
+				.transition().duration(200)
+				.style("fill-opacity", config.opacityArea);
+		});
+		
 	//Create the outlines	
 	blobWrapper.append("path")
 		.attr("class", "radarStroke")
 		.attr("d", function(d,i) { return radarLine(d); })
 		.style("stroke-width", config.strokeWidth + "px")
-		.style("stroke", function(d,i) { return config.labelColor[i]; })
+		.style("stroke", function(d,i) { return config.color(i); })
 		.style("fill", "none")
 		.style("filter" , "url(#glow)");		
+	
+	// Append the line circles
+	// blobWrapper.selectAll(".radarCircle")
+	// 	.data(function(d,i) { return d; })
+	// 	.enter().append("circle")
+	// 	.attr("class", "radarCircle")
+	// 	.attr("r", config.dotRadius)
+	// 	.attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
+	// 	.attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
+	// 	.style("fill", function(d,i,j) { return config.color(j); })
+	// 	.style("fill-opacity", 0.8);
 
-	var combined = "";
-
-	blobWrapper.selectAll(".radarStroke")
-		.each(function() {
-			combined += d3.select(this).attr("d");
-		});
-
-	g.append("path")
-		.attr("class", "radarArea")
-		.attr("d", combined)
-		.style("stroke", "none")
-		.attr("fill", "#F6CFD9")
-		.attr("fill-rule", "evenodd")
-		.style("fill-opacity", config.opacityArea)
 
     renderFooter()
 
@@ -449,16 +481,15 @@ function initConfig(id, data, options) {
         h: 600,				//Height of the circle
         margin: {top: 20, right: 20, bottom: 20, left: 20}, //The margins of the SVG
         levels: 3,				//How many levels or inner circles should there be drawn
-        maxValue: 10, 			//What is the value that the biggest circle will represent
+        maxValue: 0, 			//What is the value that the biggest circle will represent
         labelFactor: 1.25, 	//How much farther than the radius of the outer circle should the labels be placed
         wrapWidth: 200, 		//The number of pixels after which a label needs to be given a new line
         opacityArea: 0.35, 	//The opacity of the area of the blob
         dotRadius: 1, 			//The size of the colored circles of each blog
         opacityCircles: 0.1, 	//The opacity of the circles of each blob
-        strokeWidth: 3, 		//The width of the stroke around each blob
+        strokeWidth: 2, 		//The width of the stroke around each blob
         roundStrokes: false,	//If true the area and stroke will follow a round path (cardinal-closed)
-		color: d3.scaleOrdinal(d3.schemeCategory10), //Color function
-		textColor: '#242424'
+        color: d3.scaleOrdinal(d3.schemeCategory10), //Color function
 	};
 	
 	//Put all of the options into a variable called config

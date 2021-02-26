@@ -47,34 +47,32 @@ function initRadarChart() {
 	height = Math.min(width, window.innerHeight - 20);
 
 	var data = [
-			[//iPhone
+			[
 				{axis:"Medical",value:0.17},
 				{axis:"Accident",value:0.50},
 				{axis:"Savings",value:0.29},
-				{axis:"Investment",value:0.88},
+				{axis:"Investment",value:0.4},
 				{axis:"Life",value:0.22},
 				{axis:"Critical Illness",value:0.28}
 			]
-			,[//Samsung
-				{axis:"Medical",value:0.44},
-				{axis:"Accident",value:0.55},
-				{axis:"Savings",value:0.33},
-				{axis:"Investment",value:0.44},
-				{axis:"Life",value:0.55},
-				{axis:"Critical Illness",value:0.77}
+			,[
+				{axis:"Medical",value:0.8},
+				{axis:"Accident",value:0.9 },
+				{axis:"Savings",value:0.7},
+				{axis:"Investment",value:0.7},
+				{axis:"Life",value:0.7},
+				{axis:"Critical Illness",value:0.7}
 			]
 			];
 
-	var color = d3.scaleOrdinal().range(["#529fca","#CC333F"]);
+	var color = d3.scaleOrdinal().range(["#CC333F", "#529fca"]);
 		
 	var radarChartOptions = {
-		maxValue: 0.5,
+		maxValue: 1,
 		levels: 5,
-		roundStrokes: true,
-		color: color,
-		textLabelIcon: ['assets/img/iconDiMedical.svg', 'assets/img/iconDiSavings.svg', 'assets/img/iconDiCi.svg', 'assets/img/iconDiLife.svg', 'assets/img/iconDiAccident.svg', 'assets/img/iconDiInvestment.svg'],
-		title: 'Coverage at-a-glance',
-		textColor: '#242424',
+		textLabelIcon: ['assets/img/iconCatMedical.svg', 'assets/img/iconCatAccident.svg', 'assets/img/iconCatSavings.svg', 'assets/img/iconCatInvest.svg', 'assets/img/iconCatCoverage.svg', 'assets/img/iconCatIllness.svg'],
+		labelColor: ['#CC333F', '#529fca'],
+		title: 'Coverage at-a-glance'
 	};
 
 	RadarChart(".radar-chart", data, radarChartOptions);
@@ -98,16 +96,23 @@ function initMedicalChart() {
 		w: 600,
         h: 300,
 		color: color,
-		labelIcon: ['assets/img/iconDiMedical.svg', 'assets/img/iconDiSavings.svg'],
+		labelIcon: ['assets/img/iconFillWardSemi.svg', 'assets/img/iconFillWard.svg'],
 		labelColor: ['#CC333F', '#529fca'],
 		title: 'Medical',
-		textColor: '#242424',
 	};
 
 	PieChart(".radar-chart", data, radarChartOptions);
 }
 
 function initNonMedicalChart(categoryType) {
+	const labelIcon = 		{
+		"Life": 'assets/img/iconCatCoverage.svg',
+		"Critical Illness": 'assets/img/iconCatIllness.svg',
+		"Investment": 'assets/img/iconCatInvest.svg',
+		"Accident": 'assets/img/iconCatAccident.svg',
+		"Savings": 'assets/img/iconCatSavings.svg',
+	};
+
 	const data = [
 		{
 			"key": "your Current Sum Assured",
@@ -127,11 +132,10 @@ function initNonMedicalChart(categoryType) {
 		w: 600,
         h: 300,
 		color: color,
-		labelIcon: ['assets/img/iconDiMedical.svg'],
+		labelIcon: labelIcon[categoryType],
 		labelColor: ['#CC333F', '#529fca'],
 		labelFullColor: ['#F5B7B1', '#AED6F1'],
 		title: categoryType,
-		textColor: '#242424',
 	};
 
 	LineChart(".radar-chart", data, radarChartOptions);

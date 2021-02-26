@@ -21,10 +21,8 @@
 }
 
 .product-card {
-	margin: 20px 0;
 	padding-bottom: 10px;
 	background-color: #fff;
-	box-shadow: 0 8px 13px 0 rgba(0,0,0,.06),0 4px 9px 0 rgba(0,0,0,.07),0 1px 10px 0 rgba(0,0,0,.08);
 }
 
 .product-card-img img {
@@ -59,7 +57,7 @@
 .wrap-offer-description .offer-description-img {
 	width: 35px;
 	height: 35px;
-	flex: 0 0 15%;
+	margin-right: 10%;
 }
 
 .product-action {
@@ -81,6 +79,31 @@
 	font-weight: 600;
 	font-size: 16px;
 	line-height: 24px;
+}
+
+.buy-product-action {
+    text-align: center;
+    position: absolute;
+    padding: 20px 0;
+    width: 100%;
+    bottom: 0;
+    border-top: gray solid 1px;
+}
+
+.buy-product-action .buy-button{
+	width: 90%;
+	padding: 10px 0;
+    color: #fff;
+    background-color: #D31145;
+    border: none;
+	border-radius: 5px;
+	outline:none;
+	height: 48px;
+	font-size: 16px;
+	letter-spacing: 0.1px;
+	line-height: 24px;
+	text-align: center;
+	border-radius: 8px;
 }
 
 .product-tag {
@@ -140,4 +163,8 @@
 	width: 50px;
 	height: 50px;
 	border-radius: 25px;
+}
+
+.container-head {
+    padding: 20px;
 }

@@ -24,10 +24,18 @@
 		$(document).ready(function(){
 			initNews();
 			initRadarChart();
+
+			$("#protection-gap-tooltips-flag")
+				.mouseover( function() {
+					$('.protection-gap-tooltips').removeClass("hidden");
+				})
+				.mouseout(function(){
+					$('.protection-gap-tooltips').addClass("hidden");
+				})
 		});
 
 		function updateCategory(categoryType){
-			if (categoryType === 'medical') {
+			if (categoryType === 'Medical') {
 				initMedicalChart();
 			} else if (categoryType === 'overall') {
 				initRadarChart();
@@ -39,17 +47,24 @@
 		}
 
 		function updateProtectionGap(categoryType) {
-			if (categoryType === 'medical') {
+			if (categoryType === 'Medical') {
 				$('.wrap-protection-gap').removeClass("hidden");
+				$("#protection-gap-text").html("Standard Private Room Coverage");
+
 			}  else if (categoryType === 'overall') {
 				$('.wrap-protection-gap').addClass("hidden");
 			} else {
 				$('.wrap-protection-gap').removeClass("hidden");
+				$("#protection-gap-text").html("USD 3000");
 			}
 		}
 		
-		function handleGotoProductDetail(id) {
-			window.location.href="./product-detail.html";
+		function handleGotoProductDetail(type) {
+			if (type === 1) {
+				window.location.href="./product-detail.html";
+			} else {
+				window.location.href="./product-detail-buy.html";
+			}
 		}
 	</script>
 </head>
@@ -62,7 +77,7 @@
 
 	<div class="wrap-section">
 		<div class="avatar">
-			<img src="./images/1.jpg">
+			<img src="./assets/images/graphic-profile.png">
 		</div>
 
 		<div class="container-news">
@@ -87,7 +102,7 @@
 					<span class="title">Your coverage</span>
 					<span class="title-2">
 						6
-						<img src="/src/assets/img/iconIconInsured.svg">
+						<img src="assets/img/iconIconInsured.svg">
 					</span>
 				</div>
 
@@ -95,9 +110,20 @@
 			</div>
 
 			<div class="hidden wrap-protection-gap">
-				<span class="protection-gap-title">Protection Gap <i class="fa fa-exclamation-circle"></i></span>
+				<span class="protection-gap-title">Protection Gap <i id="protection-gap-tooltips-flag" class="fa fa-exclamation-circle"></i>
 
-				<span class="protection-gap-text">
+					<div class="hidden tooltips protection-gap-tooltips">
+						<div class="arrow "></div>
+						<div class="tooltips-title">Protection Gap</div>
+						<div class="tooltips-text">
+							Protection gap means the difference between the protection you are currently enjoying and the protection of the other AIA customers who are in a similar life stage as yours.
+						</div>
+
+						<div><u>Know More</u></div>
+					</div>
+				</span>
+
+				<span class="protection-gap-text" id="protection-gap-text">
 					Standard Private Room Coverage
 				</span>
 			</div>
@@ -105,58 +131,58 @@
 			<div class="container-radar-link">
 				<span class="link-item active" onclick="updateCategory('overall')">
 					<span class="link-item-img">
-						<img src="/src/assets/img/iconCatOverall.svg" />
+						<img src="assets/img/iconCat/iconCatOverall.svg" />
 					</span>
 	
 					<span class="link-item-text">Overall</span>
 				</span>
 	
-				<span class="link-item" onclick="updateCategory('LIFE')">
+				<span class="link-item" onclick="updateCategory('Life')">
 					<span class="link-item-img">
-						<img src="/src/assets/img/iconCatLife.svg" />
+						<img src="assets/img/iconCat/iconCatLife.svg" />
 					</span>
 	
-					<span class="link-item-text">LIFE</span>
+					<span class="link-item-text">Life</span>
 				</span>
 	
-				<span class="link-item" onclick="updateCategory('CRITICAL ILLNESS')">
+				<span class="link-item" onclick="updateCategory('Critical Illness')">
 					<span class="link-item-img">
-						<img src="/src/assets/img/iconCatCi.svg" />
+						<img src="assets/img/iconCat/iconCatCi.svg" />
 					</span>
 	
-					<span class="link-item-text">CRITICAL ILLNESS</span>
+					<span class="link-item-text">Critical Illness</span>
 				</span>
 	
-				<span class="link-item" onclick="updateCategory('CRITICAL ILLNESS')">
-					<span class="link-item-img">
-						<img src="/src/assets/img/iconCatSavings.svg" />
-					</span>
-	
-					<span class="link-item-text">SAVINGS</span>
-				</span>
-	
-				<span class="link-item" onclick="updateCategory('medical')">
+				<span class="link-item" onclick="updateCategory('Medical')">
 					<span class="link-item-img" >
-						<img src="/src/assets/img/iconCatMedical.svg" />
+						<img src="assets/img/iconCat/iconCatMedical.svg" />
 					</span>
 	
-					<span class="link-item-text">MEDICAL</span>
+					<span class="link-item-text">Medical</span>
 				</span>
 	
-				<span class="link-item" onclick="updateCategory('INVESTMENT')">
+				<span class="link-item" onclick="updateCategory('Investment')">
 					<span class="link-item-img">
-						<img src="/src/assets/img/iconCatInvestment.svg" />
+						<img src="assets/img/iconCat/iconCatInvestment.svg" />
 					</span>
 	
-					<span class="link-item-text">INVESTMENT</span>
+					<span class="link-item-text">Investment</span>
 				</span>
 	
-				<span class="link-item" onclick="updateCategory('ACCIDENT')">
+				<span class="link-item" onclick="updateCategory('Accident')">
 					<span class="link-item-img">
-						<img src="/src/assets/img/iconCatAccident.svg" />
+						<img src="assets/img/iconCat/iconCatAccident.svg" />
 					</span>
 	
-					<span class="link-item-text">ACCIDENT</span>
+					<span class="link-item-text">Accident</span>
+				</span>
+
+				<span class="link-item" onclick="updateCategory('Savings')">
+					<span class="link-item-img">
+						<img src="assets/img/iconCat/iconCatSavings.svg" />
+					</span>
+	
+					<span class="link-item-text">Savings</span>
 				</span>
 			</div>
 		</div>
@@ -166,7 +192,7 @@
 		<div class="container-suggestion">
 			<span class="suggestion-item">
 				<span class="suggestion-image">
-					<img src="./images/1.jpg">
+					<img src="./assets/images/graphicProfilep.png">
 				</span>
 			</span>
 
@@ -178,7 +204,7 @@
 		<div class="container-product-card">
 			<div class="product-card" onclick="handleGotoProductDetail(1)">
 				<div class="product-card-img">
-					<img src="/src/assets/images/1.jpg">
+					<img src="assets/images/compProductImg.jpg">
 				</div>
 
 				<div class="product-description">
@@ -195,9 +221,9 @@
 				</div>
 			</div>
 
-			<div class="product-card" onclick="handleGotoProductDetail(1)">
+			<div class="product-card" onclick="handleGotoProductDetail(2)">
 				<div class="product-card-img">
-					<img src="/src/assets/images/1.jpg">
+					<img src="assets/images/compProductImg.jpg">
 				</div>
 
 				<div class="product-description">
@@ -214,9 +240,9 @@
 				</div>
 			</div>
 
-			<div class="product-card" onclick="handleGotoProductDetail(1)">
+			<div class="product-card" onclick="handleGotoProductDetail(2)">
 				<div class="product-card-img">
-					<img src="/src/assets/images/1.jpg">
+					<img src="assets/images/compProductImg.jpg">
 				</div>
 
 				<div class="product-description">
@@ -233,6 +259,9 @@
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div class="wrap-connect-menu">
 	</div>
 </div>
 
