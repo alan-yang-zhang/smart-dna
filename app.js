@@ -3,7 +3,7 @@ const Path=require("path");
 const fs=require("fs");
 
 var server = http.createServer(function (req, res){
-    let fileName=Path.resolve(__dirname,"."+req.url);
+    let fileName=Path.resolve(__dirname,"."+req.url).split("?")[0];
 
     if (req.url === '/'){
         fileName = Path.resolve(__dirname, 'index.html');

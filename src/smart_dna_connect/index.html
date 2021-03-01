@@ -16,14 +16,14 @@
 
 
 	<script src="js/custom.js" type="text/javascript"></script>
+	<script src="js/jquery.i18n.js" type="text/javascript"></script>
+	<script src="js/language.js" type="text/javascript"></script>
 
 	<script src="lib/js/d3.min.js"></script>
 	<script src="js/radarChart.js"></script>
 	<link rel="stylesheet" href="css/radarChart.css" type="text/css" media="screen" />
 
 
-	<script src="jquery.min.js"></script>
-	<script src="jquery.i18n.js"></script>
 
 	<script>
 		$(document).ready(function(){
@@ -87,10 +87,10 @@
 
 		<div class="container-news">
 			<div class="news-text">
-				What's
-				<div class="text-bold">
+				<span i18n="1.0.0.0">What's</span>
+				<span i18n="1.0.0.1" class="text-bold">
 					On
-				</div>
+				</span>
 			</div>
 			<div class="news-images">
 			</div>
@@ -104,7 +104,7 @@
 				</div> -->
 
 				<div class="radar-chart-title">
-					<span class="title">Your coverage</span>
+					<span i18n="1.0.0.3" class="title">Your coverage</span>
 					<span class="title-2">
 						6
 						<img src="assets/img/iconIconInsured.svg">

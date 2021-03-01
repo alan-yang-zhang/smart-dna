@@ -12,8 +12,8 @@
             var defaults = {
                 lang: "",
                 defaultLang: "",
-                filePath: "/i18n/",
-                filePrefix: "i18n_",
+                filePath: "./assets/i18n/",
+                filePrefix: "",
                 fileSuffix: "",
                 forever: true,
                 callback: function() {}
